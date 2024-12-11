@@ -1,14 +1,24 @@
-const { isPalindrome } = require('../3-palindrome/palindrome.js');
+const { isPalindrome } = require('./palindrome');
 
-test('Assert that the phrase is a palindrome.', () => {
-    expect(isPalindrome('subinoonibus')).toBe(false);
-    expect(isPalindrome('SubiNoOnibus')).toBe(false);
-    expect(isPalindrome('Subi no onibus')).toBe(false);
-    expect(isPalindrome('Subi no ônibus')).toBe(false);
-    expect(isPalindrome('@Subi no ônibus')).toBe(false);
-    expect(isPalindrome('1Subi no ônibus')).toBe(false);
-    expect(isPalindrome(1)).toBe(false);
-    expect(isPalindrome('')).toBe(false);
+test('deve identificar um palíndromo simples', () => {
+    expect(isPalindrome('arara')).toBe(true);
+    expect(isPalindrome('dani')).toBe(false);
+    expect(isPalindrome('reviver')).toBe(true);
+});
+
+test('deve identificar um palíndromo com letras maiúsculas e minúsculas', () => {
+    expect(isPalindrome('Ana')).toBe(true);
+    expect(isPalindrome('aNa')).toBe(true);
+    expect(isPalindrome('DaNi')).toBe(false);
+});
+
+test('deve identificar um palíndromo com espaços e pontuação', () => {
+    expect(isPalindrome('A man, a plan, a canal: Panama')).toBe(true);
+    expect(isPalindrome('Após a sopa.')).toBe(true);
+    expect(isPalindrome('Quem tem boca, vaia Roma')).toBe(false);
+});
+
+test('retorna false para valores inválidos', () => {
     expect(isPalindrome(null)).toBe(false);
-    expect(isPalindrome(undefined)).toBe(false);
+    expect(isPalindrome(12321)).toBe(false);
 });

@@ -1,7 +1,7 @@
 function isPalindrome(str) {
-    const strTreated = str.replace(/[^a-zA-Z]/g, "").trim().toLowerCase(); // .normalize('NFD') typeof stc !== string
-    if (strTreated == strTreated.split("").reverse().join("")) return true;
-    return false;
+    if (typeof str !== 'string') return false;
+    const sanitized = str.normalize("NFD").toLowerCase().replace(/[\W_]/g, '');
+    return sanitized === sanitized.split('').reverse().join('');
 }
 
 module.exports = { isPalindrome };
