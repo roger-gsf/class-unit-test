@@ -1,24 +1,24 @@
 const { isPalindrome } = require('./palindrome');
 
-test('deve identificar um palíndromo simples', () => {
+test('should identify a simple palindrome', () => {
     expect(isPalindrome('arara')).toBe(true);
     expect(isPalindrome('dani')).toBe(false);
     expect(isPalindrome('reviver')).toBe(true);
 });
 
-test('deve identificar um palíndromo com letras maiúsculas e minúsculas', () => {
+test('should identify a palindrome with uppercase and lowercase letters', () => {
     expect(isPalindrome('Ana')).toBe(true);
     expect(isPalindrome('aNa')).toBe(true);
     expect(isPalindrome('DaNi')).toBe(false);
 });
 
-test('deve identificar um palíndromo com espaços e pontuação', () => {
+test('should identify a palindrome with spaces and punctuation', () => {
     expect(isPalindrome('A man, a plan, a canal: Panama')).toBe(true);
     expect(isPalindrome('Após a sopa.')).toBe(true);
     expect(isPalindrome('Quem tem boca, vaia Roma')).toBe(false);
 });
 
-test('retorna false para valores inválidos', () => {
+test('returns false for invalid values', () => {
     expect(isPalindrome(null)).toBe(false);
     expect(isPalindrome(12321)).toBe(false);
 });
